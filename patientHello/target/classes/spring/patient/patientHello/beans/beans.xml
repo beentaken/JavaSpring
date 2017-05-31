@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="patient" class="spring.patient.patientHello.Patient"
+		scope="singleton" init-method="onCreate" destroy-method="onDestroy">
+		<constructor-arg value="25"></constructor-arg>
+		<constructor-arg value="Tom"></constructor-arg>
+		<property name="nationID" value="13055417"></property>
+		<property name="address" ref="address"></property>
+	</bean>
+	<bean id="address" class="spring.patient.patientHello.Address">
+		<constructor-arg name="street" value="Rajshahi"></constructor-arg>
+		<constructor-arg name="postcode" value="5888"></constructor-arg>
+	</bean>
+</beans>
