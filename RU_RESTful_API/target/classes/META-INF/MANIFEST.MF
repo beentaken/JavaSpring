@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: RU_RESTful_API
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: ss
+Implementation-Vendor-Id: com.RU_RESTful_API
+Build-Jdk: 1.8.0_131
+Implementation-URL: http://projects.spring.io/spring-boot/RU_RESTful_A
+ PI/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
