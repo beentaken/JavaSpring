@@ -1,0 +1,57 @@
+package com.javasampleapproach.mysql.exam.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.model.Admission;
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.model.Fee;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+import com.javasampleapproach.mysql.repo.FeeRepository;
+
+@Service
+public class FeeService {
+	
+	@Autowired
+	private FeeRepository feerepo;
+	
+	public void addfee(Fee fee){
+		feerepo.save(fee);
+		
+	}
+	
+public void deletefee(long id) {
+		
+		feerepo.delete(id);
+		
+	}
+
+public void updatefee(long id,Fee fee) {
+	
+	feerepo.save(fee);
+	
+	
+}
+
+public Fee getfee(long id)
+{
+	
+	return (Fee) feerepo.findOne(id);
+}
+
+public List<Fee>getallfee()
+{
+	
+	List<Fee> fee=new ArrayList<>();
+	feerepo.findAll()
+	.forEach(fee::add);
+	
+	return fee;
+}
+
+
+
+}

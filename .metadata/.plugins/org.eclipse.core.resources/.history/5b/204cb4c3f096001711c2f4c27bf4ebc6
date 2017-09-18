@@ -1,0 +1,59 @@
+package com.javasampleapproach.mysql.hall.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "admission" )
+public class Admission implements Serializable {
+	
+	private static final long serialVersionUID = -3009157732242241606L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	
+	@Column(name = "ref_id")
+	private long ref_id;
+
+	@Column(name = "info_about_admission")
+	private String info_about_admission;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public long getRef_id() {
+		return ref_id;
+	}
+
+	public void setRef_id(long ref_id) {
+		this.ref_id = ref_id;
+	}
+
+	public String getInfo_about_admission() {
+		return info_about_admission;
+	}
+
+	public void setInfo_about_admission(String info_about_admission) {
+		this.info_about_admission = info_about_admission;
+	}
+
+	@Override
+	public String toString() {
+		return "Admission [id=" + id + ", ref_id=" + ref_id + ", info_about_admission=" + info_about_admission + "]";
+	}
+
+	
+	
+}

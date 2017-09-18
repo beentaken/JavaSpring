@@ -1,0 +1,26 @@
+package com.javasampleapproach.mysql.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+
+@Service
+public class ApiService {
+	
+	@Autowired
+	private ApiRepository apirepo;
+	
+	public void addapi(Api api){
+		apirepo.save(api);
+		
+	}
+	
+public void deleteapi(long id) {
+		
+		apirepo.delete(id);
+		
+	}
+
+}

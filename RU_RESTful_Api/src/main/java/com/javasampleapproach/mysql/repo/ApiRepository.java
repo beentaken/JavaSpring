@@ -8,11 +8,18 @@ import com.javasampleapproach.mysql.model.Api;
 
 public interface ApiRepository extends CrudRepository<Api, Long >{
 
-      //  Api findByApi_name(String api_name);
 
-	//List<Api> fetchDataByApi_name(String api_name);
 
-//	List<Api>  findbyapi_name(String api_name);
+ 
+
+// List<Api> findbyapi_name(String api_name);
+
+
+
+//Object findbyapi_name(String api_name);
+
+
+
 
 	
 }

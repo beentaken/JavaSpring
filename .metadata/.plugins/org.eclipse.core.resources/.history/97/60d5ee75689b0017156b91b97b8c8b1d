@@ -1,0 +1,43 @@
+package com.javasampleapproach.mysql.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.model.Time;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+import com.javasampleapproach.mysql.repo.TimeRepository;
+
+@Service
+public class TimeService {
+	
+	@Autowired
+	private TimeRepository timerepo;
+	
+	public void addtime(Time time){
+		timerepo.save(time);
+		
+	}
+	
+public void deletetime(long id) {
+		
+		timerepo.delete(id);
+		
+	}
+	
+public void updatetime(long id, Time time) {
+	
+	timerepo.save(time);
+	
+	
+}
+
+public Time gettime(long id)
+{
+	
+	return (Time) timerepo.findOne(id);
+}
+
+
+
+}

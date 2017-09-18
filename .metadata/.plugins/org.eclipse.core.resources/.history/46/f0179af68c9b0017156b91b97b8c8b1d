@@ -1,0 +1,56 @@
+package com.javasampleapproach.mysql.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.model.Admission;
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.model.Payment;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+import com.javasampleapproach.mysql.repo.PaymentRepository;
+
+@Service
+public class PaymentService {
+	
+	@Autowired
+	private PaymentRepository paymentrepo;
+	
+	public void addpayment(Payment payment){
+		paymentrepo.save(payment);
+		
+	}
+	
+public void deletepayment(long id) {
+		
+		paymentrepo.delete(id);
+		
+	}
+
+public void updatepayment(long id, Payment payment) {
+	
+	paymentrepo.save(payment);
+	
+	
+}
+
+public Payment getpayment(long id)
+{
+	
+	return (Payment) paymentrepo.findOne(id);
+}
+
+public List<Payment>getallpayment()
+{
+	
+	List<Payment> payment=new ArrayList<>();
+	paymentrepo.findAll()
+	.forEach(payment::add);
+	
+	return payment;
+}
+	
+
+}

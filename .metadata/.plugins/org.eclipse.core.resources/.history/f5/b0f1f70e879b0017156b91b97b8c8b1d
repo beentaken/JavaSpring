@@ -1,0 +1,61 @@
+package com.javasampleapproach.mysql.exam.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "location" )
+public class Datewise implements Serializable {
+	
+	private static final long serialVersionUID = -3009157732242241606L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	
+	
+	@Column(name = "location_info")
+	private String location_info;
+
+
+
+	public long getId() {
+		return id;
+	}
+
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+
+	public String getLocation_info() {
+		return location_info;
+	}
+
+
+
+	public void setLocation_info(String location_info) {
+		this.location_info = location_info;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Location [id=" + id + ", location_info=" + location_info + "]";
+	}
+	
+	
+	
+}
+	
+	

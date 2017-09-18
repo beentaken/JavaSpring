@@ -1,0 +1,30 @@
+package com.javasampleapproach.mysql.association.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "association" )
+public class Association implements Serializable {
+	
+	private static final long serialVersionUID = -3009157732242241606L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	
+	
+
+	@Column(name = "name_of_president")
+	private String name_of_president;
+	
+	@Column(name = "contact_info")
+	private String contact_info;
+	
+}

@@ -1,0 +1,85 @@
+package com.javasampleapproach.mysql.association.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "residence" )
+public class Association implements Serializable {
+	
+	private static final long serialVersionUID = -3009157732242241606L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	
+	@Column(name = "ref_id")
+	private long ref_id;
+
+	@Column(name = "residence_student_info")
+	private String residence_student_info;
+	
+	@Column(name = "residence_teacher_info")
+	private String residence_teacher_info;
+	
+	@Column(name = "residence_stuff_info")
+	private String residence_stuff_info;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public long getRef_id() {
+		return ref_id;
+	}
+
+	public void setRef_id(long ref_id) {
+		this.ref_id = ref_id;
+	}
+
+	public String getResidence_student_info() {
+		return residence_student_info;
+	}
+
+	public void setResidence_student_info(String residence_student_info) {
+		this.residence_student_info = residence_student_info;
+	}
+
+	public String getResidence_teacher_info() {
+		return residence_teacher_info;
+	}
+
+	public void setResidence_teacher_info(String residence_teacher_info) {
+		this.residence_teacher_info = residence_teacher_info;
+	}
+
+	public String getResidence_stuff_info() {
+		return residence_stuff_info;
+	}
+
+	public void setResidence_stuff_info(String residence_stuff_info) {
+		this.residence_stuff_info = residence_stuff_info;
+	}
+
+	@Override
+	public String toString() {
+		return "Residence [id=" + id + ", ref_id=" + ref_id + ", residence_student_info=" + residence_student_info
+				+ ", residence_teacher_info=" + residence_teacher_info + ", residence_stuff_info="
+				+ residence_stuff_info + "]";
+	}
+
+	
+	
+	
+	
+}

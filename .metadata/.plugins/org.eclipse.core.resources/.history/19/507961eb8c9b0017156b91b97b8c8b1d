@@ -1,0 +1,56 @@
+package com.javasampleapproach.mysql.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.model.Admission;
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.model.HelpCenter;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+import com.javasampleapproach.mysql.repo.HelpCenterRepository;
+
+@Service
+public class HelpCenterService {
+	
+	@Autowired
+	private HelpCenterRepository helpcenterrepo;
+	
+	public void addhelpcenter(HelpCenter helpcenter){
+		helpcenterrepo.save(helpcenter);
+		
+	}
+	
+public void deletehelpcenter(long id) {
+		
+		helpcenterrepo.delete(id);
+		
+	}
+	
+public void updatehelpcenter(long id, HelpCenter helpcenter) {
+	
+	helpcenterrepo.save(helpcenter);
+	
+	
+}
+
+public HelpCenter gethelpcenter(long id)
+{
+	
+	return (HelpCenter) helpcenterrepo.findOne(id);
+}
+
+public List<HelpCenter>getallhelpcenter()
+{
+	
+	List<HelpCenter> helpcenter=new ArrayList<>();
+	helpcenterrepo.findAll()
+	.forEach(helpcenter::add);
+	
+	return helpcenter;
+}
+
+
+}

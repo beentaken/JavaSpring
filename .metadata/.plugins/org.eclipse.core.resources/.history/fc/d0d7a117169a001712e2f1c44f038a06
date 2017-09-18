@@ -1,0 +1,23 @@
+package com.javasampleapproach.mysql.hall.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.hall.model.Location;
+import com.javasampleapproach.mysql.hall.repo.LocationRepository;
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+
+@Service
+public class LocationService {
+	
+	@Autowired
+	private LocationRepository locationrepo;
+	
+	public void addlocation(Location location){
+		locationrepo.save(location);
+		
+	}
+	
+
+}

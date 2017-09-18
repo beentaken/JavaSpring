@@ -1,0 +1,155 @@
+package com.javasampleapproach.mysql.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.javasampleapproach.mysql.model.Admission;
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.model.Applicant;
+import com.javasampleapproach.mysql.model.Emergency_contact;
+import com.javasampleapproach.mysql.model.HelpCenter;
+import com.javasampleapproach.mysql.model.Payment;
+import com.javasampleapproach.mysql.model.Unit;
+import com.javasampleapproach.mysql.repo.AdmissionRepository;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+import com.javasampleapproach.mysql.repo.ApplicantRepository;
+import com.javasampleapproach.mysql.repo.EmergencycontactRepository;
+import com.javasampleapproach.mysql.repo.HelpCenterRepository;
+import com.javasampleapproach.mysql.repo.PaymentRepository;
+import com.javasampleapproach.mysql.repo.UnitRepository;
+
+
+@RestController
+public class WebController {
+	@Autowired
+	ApiRepository repository;
+	
+	@Autowired
+	AdmissionRepository repoAdm;
+	
+	@Autowired
+	UnitRepository repoUnit;
+	
+	@Autowired
+	HelpCenterRepository repoHelpcenter;
+	
+	@Autowired
+	EmergencycontactRepository repoEmergencycontact;
+	
+	@Autowired
+	PaymentRepository repoPayment;
+	
+	@Autowired
+	ApplicantRepository repoApplicant;
+
+
+
+	@RequestMapping("/api")
+	public String findAll(){
+		String result = "<html>";
+		
+		for(Api cust : repository.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission")
+	public String findbyAdmission(){
+		String result = "<html>";
+		
+		for(Admission cust : repoAdm.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/unit")
+	public String findbyUnit(){
+		String result = "<html>";
+		
+		for( Unit cust : repoUnit.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/helpcenter")
+	public String findbyHelpcenter(){
+		String result = "<html>";
+		
+		for( HelpCenter cust : repoHelpcenter.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/emergency_contact")
+	public String findbyEmergencycontact(){
+		String result = "<html>";
+		
+		for( Emergency_contact cust : repoEmergencycontact.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/payment")
+	public String findbyPayment(){
+		String result = "<html>";
+		
+		for( Payment cust : repoPayment.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/applicant")
+	public String findbyApplicant(){
+		String result = "<html>";
+		
+		for( Applicant cust : repoApplicant.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	
+	@RequestMapping("/findbyid")
+	public String findById(@RequestParam("id") long id){
+		String result = "";
+		result = repository.findOne(id).toString();
+		return result;
+	}
+	
+//	@RequestMapping("/names")
+//	public String fetchDataByapi_name(@RequestParam("api_name") String api_name){
+//		String result = "";
+//		result = repository.findbyapi_name(api_name).toString();
+//		return result;
+//		
+//	}
+	
+//	@RequestMapping("/Apiname")
+//	public String fetchDataByapi_name(@RequestParam("api_name") String api_name){
+//		String result = "<html>";
+//	
+//		
+//		for(Api cust: repository.findbyapi_name(api_name)){
+//			result += "<div>" + cust.toString() + "</div>"; 
+//			
+//		}
+//		
+//		return result + "</html>";
+//	
+//	}
+}

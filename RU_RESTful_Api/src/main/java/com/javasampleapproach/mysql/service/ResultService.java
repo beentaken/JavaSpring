@@ -1,0 +1,55 @@
+package com.javasampleapproach.mysql.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.model.Admission;
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.model.Result;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+import com.javasampleapproach.mysql.repo.ResultRepository;
+
+@Service
+public class ResultService {
+	
+	@Autowired
+	private ResultRepository resultrepo;
+	
+	public void addresult(Result result){
+		resultrepo.save(result);
+		
+	}
+	
+public void deleteresult(long id) {
+		
+		resultrepo.delete(id);
+		
+	}
+	
+public void updateresult(long id, Result result) {
+	
+	resultrepo.save(result);
+	
+	
+}
+
+public Result getresult(long id)
+{
+	
+	return (Result) resultrepo.findOne(id);
+}
+
+public List<Result>getallresult()
+{
+	
+	List<Result> result=new ArrayList<>();
+	resultrepo.findAll()
+	.forEach(result::add);
+	
+	return result;
+}
+
+}

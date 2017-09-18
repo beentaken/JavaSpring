@@ -1,0 +1,105 @@
+package com.javasampleapproach.mysql.exam.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "housetutor" )
+public class ClassSchedule implements Serializable {
+	
+	private static final long serialVersionUID = -3009157732242241606L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+
+	@Column(name = "num_of_house_tutor")
+	private String num_of_house_tutor;
+	
+	@Column(name = "name_of_house_tutor")
+	private String name_of_house_tutor;
+	
+	@Column(name = "contact_num_of_house_tutor")
+	private String contact_num_of_house_tutor;
+	
+	@Column(name = "email_of_house_tutor")
+	private String email_of_house_tutor;
+	
+	@Column(name = "designation_of_house_tutor")
+	private String designation_of_house_tutor;
+	
+	@Column(name = "room_num_of_house_tutor")
+	private String room_num_of_house_tutor;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNum_of_house_tutor() {
+		return num_of_house_tutor;
+	}
+
+	public void setNum_of_house_tutor(String num_of_house_tutor) {
+		this.num_of_house_tutor = num_of_house_tutor;
+	}
+
+	public String getName_of_house_tutor() {
+		return name_of_house_tutor;
+	}
+
+	public void setName_of_house_tutor(String name_of_house_tutor) {
+		this.name_of_house_tutor = name_of_house_tutor;
+	}
+
+	public String getContact_num_of_house_tutor() {
+		return contact_num_of_house_tutor;
+	}
+
+	public void setContact_num_of_house_tutor(String contact_num_of_house_tutor) {
+		this.contact_num_of_house_tutor = contact_num_of_house_tutor;
+	}
+
+	public String getEmail_of_house_tutor() {
+		return email_of_house_tutor;
+	}
+
+	public void setEmail_of_house_tutor(String email_of_house_tutor) {
+		this.email_of_house_tutor = email_of_house_tutor;
+	}
+
+	public String getDesignation_of_house_tutor() {
+		return designation_of_house_tutor;
+	}
+
+	public void setDesignation_of_house_tutor(String designation_of_house_tutor) {
+		this.designation_of_house_tutor = designation_of_house_tutor;
+	}
+
+	public String getRoom_num_of_house_tutor() {
+		return room_num_of_house_tutor;
+	}
+
+	public void setRoom_num_of_house_tutor(String room_num_of_house_tutor) {
+		this.room_num_of_house_tutor = room_num_of_house_tutor;
+	}
+
+	@Override
+	public String toString() {
+		return "HouseTutor [id=" + id + ", num_of_house_tutor=" + num_of_house_tutor + ", name_of_house_tutor="
+				+ name_of_house_tutor + ", contact_num_of_house_tutor=" + contact_num_of_house_tutor
+				+ ", email_of_house_tutor=" + email_of_house_tutor + ", designation_of_house_tutor="
+				+ designation_of_house_tutor + ", room_num_of_house_tutor=" + room_num_of_house_tutor + "]";
+	}
+	
+	
+}

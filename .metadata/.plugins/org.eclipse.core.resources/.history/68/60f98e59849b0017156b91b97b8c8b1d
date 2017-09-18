@@ -1,0 +1,98 @@
+package com.javasampleapproach.mysql.hall.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "nameofhall" )
+public class NameofHall implements Serializable {
+	
+	private static final long serialVersionUID = -3009157732242241606L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	
+	
+
+	@Column(name = "hallcapacity")
+	private String hallcapacity;
+	
+	@Column(name = "num_of_residence_student")
+	private long num_of_residence_student;
+	
+	@Column(name = "num_of_nonresidence_student")
+	private long num_of_nonresidence_student;
+	
+	@Column(name = "provost_info")
+	private String provost_info;
+	
+	@Column(name = "housetutor_info")
+	private String housetutor_info;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getHallcapacity() {
+		return hallcapacity;
+	}
+
+	public void setHallcapacity(String hallcapacity) {
+		this.hallcapacity = hallcapacity;
+	}
+
+	public long getNum_of_residence_student() {
+		return num_of_residence_student;
+	}
+
+	public void setNum_of_residence_student(long num_of_residence_student) {
+		this.num_of_residence_student = num_of_residence_student;
+	}
+
+	public long getNum_of_nonresidence_student() {
+		return num_of_nonresidence_student;
+	}
+
+	public void setNum_of_nonresidence_student(long num_of_nonresidence_student) {
+		this.num_of_nonresidence_student = num_of_nonresidence_student;
+	}
+
+	public String getProvost_info() {
+		return provost_info;
+	}
+
+	public void setProvost_info(String provost_info) {
+		this.provost_info = provost_info;
+	}
+
+	public String getHousetutor_info() {
+		return housetutor_info;
+	}
+
+	public void setHousetutor_info(String housetutor_info) {
+		this.housetutor_info = housetutor_info;
+	}
+
+	@Override
+	public String toString() {
+		return "NameofHall [id=" + id + ", hallcapacity=" + hallcapacity + ", num_of_residence_student="
+				+ num_of_residence_student + ", num_of_nonresidence_student=" + num_of_nonresidence_student
+				+ ", provost_info=" + provost_info + ", housetutor_info=" + housetutor_info + "]";
+	}
+
+	
+	
+	
+	
+}

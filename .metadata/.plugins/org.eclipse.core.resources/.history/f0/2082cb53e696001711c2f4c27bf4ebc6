@@ -1,0 +1,5 @@
+package com.javasampleapproach.mysql.repo;
+
+public interface PaymentRepository {
+
+}

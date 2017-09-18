@@ -1,0 +1,553 @@
+package com.javasampleapproach.mysql.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.javasampleapproach.mysql.association.model.Activities;
+import com.javasampleapproach.mysql.association.model.Association;
+import com.javasampleapproach.mysql.association.model.NameofAssociation;
+import com.javasampleapproach.mysql.association.model.President;
+import com.javasampleapproach.mysql.association.model.Secratary;
+import com.javasampleapproach.mysql.association.repo.ActivityRepository;
+import com.javasampleapproach.mysql.association.repo.AssociationRepository;
+import com.javasampleapproach.mysql.association.repo.NameofAssociationRepository;
+import com.javasampleapproach.mysql.association.repo.PresidentRepository;
+import com.javasampleapproach.mysql.association.repo.SecrataryRepository;
+import com.javasampleapproach.mysql.hall.model.Capacity;
+import com.javasampleapproach.mysql.hall.model.HouseTutor;
+import com.javasampleapproach.mysql.hall.model.Location;
+import com.javasampleapproach.mysql.hall.model.NameofHall;
+import com.javasampleapproach.mysql.hall.model.NonResidentialStudent;
+import com.javasampleapproach.mysql.hall.model.Provost;
+import com.javasampleapproach.mysql.hall.model.Residence;
+import com.javasampleapproach.mysql.hall.model.ResidentialStudent;
+import com.javasampleapproach.mysql.hall.model.ResidentialStuff;
+import com.javasampleapproach.mysql.hall.model.ResidentialTeacher;
+import com.javasampleapproach.mysql.hall.model.StudentResidence;
+import com.javasampleapproach.mysql.hall.model.Stuff;
+import com.javasampleapproach.mysql.hall.repo.CapacityRepository;
+import com.javasampleapproach.mysql.hall.repo.HouseTutorRepository;
+import com.javasampleapproach.mysql.hall.repo.LocationRepository;
+import com.javasampleapproach.mysql.hall.repo.NameofHallRepository;
+import com.javasampleapproach.mysql.hall.repo.NonResidentialStudentRepository;
+import com.javasampleapproach.mysql.hall.repo.ProvostRepository;
+import com.javasampleapproach.mysql.hall.repo.ResidenceRepository;
+import com.javasampleapproach.mysql.hall.repo.ResidentialStudentRepository;
+import com.javasampleapproach.mysql.hall.repo.ResidentialStuffRepository;
+import com.javasampleapproach.mysql.hall.repo.ResidentialTeacherRepository;
+import com.javasampleapproach.mysql.hall.repo.StudentResidenceRepository;
+import com.javasampleapproach.mysql.hall.repo.StuffRepository;
+import com.javasampleapproach.mysql.model.Admission;
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.model.Applicant;
+import com.javasampleapproach.mysql.model.Date;
+import com.javasampleapproach.mysql.model.Emergency_contact;
+import com.javasampleapproach.mysql.model.Fee;
+import com.javasampleapproach.mysql.model.HelpCenter;
+import com.javasampleapproach.mysql.model.MarkDistribution;
+import com.javasampleapproach.mysql.model.Payment;
+import com.javasampleapproach.mysql.model.Result;
+import com.javasampleapproach.mysql.model.Routine;
+import com.javasampleapproach.mysql.model.Time;
+import com.javasampleapproach.mysql.model.Unit;
+import com.javasampleapproach.mysql.repo.AdmissionRepository;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+import com.javasampleapproach.mysql.repo.ApplicantRepository;
+import com.javasampleapproach.mysql.repo.DateRepository;
+import com.javasampleapproach.mysql.repo.EmergencycontactRepository;
+import com.javasampleapproach.mysql.repo.FeeRepository;
+import com.javasampleapproach.mysql.repo.HelpCenterRepository;
+import com.javasampleapproach.mysql.repo.MarkDistributionRepository;
+import com.javasampleapproach.mysql.repo.PaymentRepository;
+import com.javasampleapproach.mysql.repo.ResultRepository;
+import com.javasampleapproach.mysql.repo.RoutineRepository;
+import com.javasampleapproach.mysql.repo.TimeRepository;
+import com.javasampleapproach.mysql.repo.UnitRepository;
+import com.javasampleapproach.mysql.service.AdmissionService;
+import com.javasampleapproach.mysql.service.ApiService;
+
+
+@RestController
+public class WebController {
+	@Autowired
+	ApiRepository repository;
+	
+	@Autowired
+	AdmissionRepository repoAdm;
+	
+	@Autowired
+	UnitRepository repoUnit;
+	
+	@Autowired
+	HelpCenterRepository repoHelpcenter;
+	
+	@Autowired
+	EmergencycontactRepository repoEmergencycontact;
+	
+	@Autowired
+	PaymentRepository repoPayment;
+	
+	@Autowired
+	ApplicantRepository repoApplicant;
+
+	@Autowired
+	ResidenceRepository repoResidence;
+	
+	@Autowired
+	StudentResidenceRepository repoStudentResidence;
+	
+	@Autowired
+	NameofHallRepository repoNameofHall;
+	
+	@Autowired
+	AssociationRepository repoAssociation;
+	
+
+	@Autowired
+	NameofAssociationRepository repoNameofAssociation;
+	
+	@Autowired
+	PresidentRepository repoPresident;
+	
+	@Autowired
+	SecrataryRepository repoSecratary;
+
+	
+	@Autowired
+	ActivityRepository repoActivity;
+	
+	@Autowired
+	FeeRepository repoFee;
+	
+	@Autowired
+	RoutineRepository repoRoutine;
+	
+	@Autowired
+	DateRepository repoDate;
+	
+	@Autowired
+	TimeRepository repoTime;
+	
+	@Autowired
+	ResultRepository repoResult;
+	
+	@Autowired
+	MarkDistributionRepository repoMarkdist;
+	
+	@Autowired
+	CapacityRepository repoCapacity;
+	
+	@Autowired
+	LocationRepository repoLocation;
+	
+	@Autowired
+	HouseTutorRepository repoHousetutor;
+	
+	@Autowired
+	ResidentialStudentRepository repoResidentialstudent;
+	
+	@Autowired
+	NonResidentialStudentRepository repoNonresidentialstudent;
+	
+	@Autowired
+	ResidentialTeacherRepository repoResidentialteacher;
+	
+	@Autowired
+	ResidentialStuffRepository repoResidentialstuff;
+	
+	@Autowired
+	ProvostRepository repoProvost;
+	
+	@Autowired
+	StuffRepository repoStuff;
+	
+	@Autowired
+	private ApiService apiservice;
+	
+	
+	@Autowired
+	private AdmissionService admissionservice;
+
+	@RequestMapping("/api")
+	public String findAll(){
+		String result = "<html>";
+		
+		for(Api cust : repository.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/api")
+	public void addtapi(@RequestBody  Api api)
+	{
+		apiservice.addapi(api);
+	}
+		
+		
+	
+	
+	@RequestMapping("/api/admission")
+	public String findbyAdmission(){
+		String result = "<html>";
+		
+		for(Admission cust : repoAdm.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/api/admission")
+	public void addtadmission(@RequestBody  Admission admission)
+	{
+		admissionservice.addadmission(admission);
+	}
+	
+	@RequestMapping("/api/admission/unit")
+	public String findbyUnit(){
+		String result = "<html>";
+		
+		for( Unit cust : repoUnit.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/helpcenter")
+	public String findbyHelpcenter(){
+		String result = "<html>";
+		
+		for( HelpCenter cust : repoHelpcenter.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/emergency_contact")
+	public String findbyEmergencycontact(){
+		String result = "<html>";
+		
+		for( Emergency_contact cust : repoEmergencycontact.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/unit/payment")
+	public String findbyPayment(){
+		String result = "<html>";
+		
+		for( Payment cust : repoPayment.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/applicant")
+	public String findbyApplicant(){
+		String result = "<html>";
+		
+		for( Applicant cust : repoApplicant.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+
+	@RequestMapping("/api/residence")
+	public String findbyResidence(){
+		String result = "<html>";
+		
+		for(Residence cust : repoResidence.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/studentresidence")
+	public String findbyStudentResidence(){
+		String result = "<html>";
+		
+		for(StudentResidence cust : repoStudentResidence.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/studentresidence/nameofhall")
+	public String findbyNameofhall(){
+		String result = "<html>";
+		
+		for(NameofHall cust : repoNameofHall.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/association")
+	public String findbyAssociation(){
+		String result = "<html>";
+		
+		for(Association cust : repoAssociation.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	
+	@RequestMapping("/api/association/nameofassociation")
+	public String findbyNameofAssociation(){
+		String result = "<html>";
+		
+		for(NameofAssociation cust : repoNameofAssociation.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/association/nameofassociation/president")
+	public String findbyPresident(){
+		String result = "<html>";
+		
+		for(President cust : repoPresident.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	
+	@RequestMapping("/api/association/nameofassociation/secratary")
+	public String findbySecratary(){
+		String result = "<html>";
+		
+		for(Secratary cust : repoSecratary.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/association/nameofassociation/activity")
+	public String findbyActivity(){
+		String result = "<html>";
+		
+		for(Activities cust : repoActivity.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/unit/fee")
+	public String findbyFee(){
+		String result = "<html>";
+		
+		for(Fee cust : repoFee.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/unit/routine")
+	public String findbyRoutine(){
+		String result = "<html>";
+		
+		for(Routine cust : repoRoutine.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/unit/date")
+	public String findbyDate(){
+		String result = "<html>";
+		
+		for(Date cust : repoDate.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/unit/time")
+	public String findbyTime(){
+		String result = "<html>";
+		
+		for(Time cust : repoTime.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/unit/result")
+	public String findbyResult(){
+		String result = "<html>";
+		
+		for(Result cust : repoResult.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/admission/unit/markdistribution")
+	public String findbyMarkdistribution(){
+		String result = "<html>";
+		
+		for(MarkDistribution cust : repoMarkdist.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/studentresidence/nameofhall/capacity")
+	public String findbyCapacity(){
+		String result = "<html>";
+		
+		for(Capacity cust : repoCapacity.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/studentresidence/nameofhall/location")
+	public String findbyLocation(){
+		String result = "<html>";
+		
+		for(Location cust : repoLocation.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/studentresidence/nameofhall/residentialstudent")
+	public String findbyResidentialStudent(){
+		String result = "<html>";
+		
+		for(ResidentialStudent cust : repoResidentialstudent.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/studentresidence/nameofhall/nonresidentialstudent")
+	public String findbyNonResidentialStudent(){
+		String result = "<html>";
+		
+		for(NonResidentialStudent cust : repoNonresidentialstudent.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/studentresidence/nameofhall/provost")
+	public String findbyProvost(){
+		String result = "<html>";
+		
+		for(Provost cust : repoProvost.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/studentresidence/nameofhall/housetutor")
+	public String findbyHousetutor(){
+		String result = "<html>";
+		
+		for(HouseTutor cust : repoHousetutor.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/studentresidence/nameofhall/stuff")
+	public String findbyStuff(){
+		String result = "<html>";
+		
+		for(Stuff cust : repoStuff.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/residentialteacher")
+	public String findbyResidentialTeacher(){
+		String result = "<html>";
+		
+		for(ResidentialTeacher cust : repoResidentialteacher.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	@RequestMapping("/api/residence/residentialstuff")
+	public String findbyResidentialStuff(){
+		String result = "<html>";
+		
+		for(ResidentialStuff cust : repoResidentialstuff.findAll()){
+			result += "<div>" + cust.toString() + "</div>";
+		}
+		
+		return result + "</html>";
+	}
+	
+	
+	
+	@RequestMapping("/findbyid")
+	public String findById(@RequestParam("id") long id){
+		String result = "";
+		result = repository.findOne(id).toString();
+		return result;
+	}
+//	
+//	@RequestMapping("/names")
+//	public String fetchDataByapi_name1(@RequestParam("api_name") String api_name){
+//		String result = "";
+//		result = repository.findbyapi_name(api_name).toString();
+//		return result;
+//		
+//	}
+//	
+//	@RequestMapping("/Apiname")
+//	public String fatchDataByapi_name(@RequestParam("api_name") String api_name){
+//		String result = "<html>";
+//	
+//		
+//		for(Api cust: repository.findbyapi_name(api_name)){
+//			result += "<div>" + cust.toString() + "</div>"; 
+//		
+//		}		
+//		return result + "</html>";
+//	
+//	}
+}

@@ -1,0 +1,16 @@
+package com.javasampleapproach.mysql.repo;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.javasampleapproach.mysql.model.Admission;
+
+public interface PaymentRepository extends CrudRepository<Admission, Long > {
+	
+	//List<Admission>  findbyAdmission();
+	// List<Admission>  findbyAdmission(String Admission);
+
+	// Object findbyAdm();
+
+	
+	
+}

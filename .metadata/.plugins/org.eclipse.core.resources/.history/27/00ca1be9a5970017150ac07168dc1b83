@@ -1,0 +1,37 @@
+package com.javasampleapproach.mysql.hall.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "residentstuff" )
+public class ResidentialStuff implements Serializable {
+	
+	private static final long serialVersionUID = -3009157732242241606L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	
+
+	@Column(name = "total_num_of_resident")
+	private String total_num_of_resident;
+	
+	@Column(name = "location_of_resident")
+	private String location_of_resident;
+	
+	@Column(name = "building_num_of_resident")
+	private String building_num_of_resident;
+	
+	@Column(name = "flat_num_of_resident")
+	private String flat_num_of_resident;
+	
+}
+	
+	

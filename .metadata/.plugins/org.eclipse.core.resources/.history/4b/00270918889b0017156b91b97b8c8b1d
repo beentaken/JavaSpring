@@ -1,0 +1,107 @@
+package com.javasampleapproach.mysql.exam.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "studentresidence" )
+public class Semesterwise implements Serializable {
+	
+	private static final long serialVersionUID = -3009157732242241606L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	
+	
+
+	@Column(name = "total_num_of_hall")
+	private String total_num_of_hall;
+	
+	@Column(name = "name_of_hall")
+	private String name_of_hall;
+	
+	@Column(name = "total_num_of_male_hall")
+	private String total_num_of_male_hall;
+	
+	@Column(name = "total_num_of_female_hall")
+	private String total_num_of_female_hall;
+	
+	@Column(name = "list_of_male_hall")
+	private String list_of_male_hall;
+	
+	@Column(name = "list_of_female_hall")
+	private String list_of_female_hall;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTotal_num_of_hall() {
+		return total_num_of_hall;
+	}
+
+	public void setTotal_num_of_hall(String total_num_of_hall) {
+		this.total_num_of_hall = total_num_of_hall;
+	}
+
+	public String getName_of_hall() {
+		return name_of_hall;
+	}
+
+	public void setName_of_hall(String name_of_hall) {
+		this.name_of_hall = name_of_hall;
+	}
+
+	public String getTotal_num_of_male_hall() {
+		return total_num_of_male_hall;
+	}
+
+	public void setTotal_num_of_male_hall(String total_num_of_male_hall) {
+		this.total_num_of_male_hall = total_num_of_male_hall;
+	}
+
+	public String getTotal_num_of_female_hall() {
+		return total_num_of_female_hall;
+	}
+
+	public void setTotal_num_of_female_hall(String total_num_of_female_hall) {
+		this.total_num_of_female_hall = total_num_of_female_hall;
+	}
+
+	public String getList_of_male_hall() {
+		return list_of_male_hall;
+	}
+
+	public void setList_of_male_hall(String list_of_male_hall) {
+		this.list_of_male_hall = list_of_male_hall;
+	}
+
+	public String getList_of_female_hall() {
+		return list_of_female_hall;
+	}
+
+	public void setList_of_female_hall(String list_of_female_hall) {
+		this.list_of_female_hall = list_of_female_hall;
+	}
+
+	@Override
+	public String toString() {
+		return "StudentResidence [id=" + id + ", total_num_of_hall=" + total_num_of_hall + ", name_of_hall="
+				+ name_of_hall + ", total_num_of_male_hall=" + total_num_of_male_hall + ", total_num_of_female_hall="
+				+ total_num_of_female_hall + ", list_of_male_hall=" + list_of_male_hall + ", list_of_female_hall="
+				+ list_of_female_hall + "]";
+	}
+	
+	
+}

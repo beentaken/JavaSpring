@@ -1,0 +1,23 @@
+package com.javasampleapproach.mysql.hall.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.hall.model.ResidentialStudent;
+import com.javasampleapproach.mysql.hall.repo.ResidentialStudentRepository;
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+
+@Service
+public class ResidentialStudentService {
+	
+	@Autowired
+	private ResidentialStudentRepository residentialstudentrepo;
+	
+	public void addresidentialstudent(ResidentialStudent residentialstudent){
+		residentialstudentrepo.save(residentialstudent);
+		
+	}
+	
+
+}

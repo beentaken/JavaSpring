@@ -1,0 +1,5 @@
+package com.javasampleapproach.mysql.hall.model;
+
+public class HouseTutor {
+
+}

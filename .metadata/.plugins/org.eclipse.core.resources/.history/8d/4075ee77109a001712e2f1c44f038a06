@@ -1,0 +1,23 @@
+package com.javasampleapproach.mysql.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.model.Emergency_contact;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+import com.javasampleapproach.mysql.repo.EmergencycontactRepository;
+
+@Service
+public class Emergency_contactService {
+	
+	@Autowired
+	private EmergencycontactRepository emergencyrepo;
+	
+	public void addemergencycontact(Emergency_contact emergencycontact){
+		emergencyrepo.save(emergencycontact);
+		
+	}
+	
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 0 elements to &apos;RU_RESTful_Api/src/main/java/com.javasampleapproach.mysql.exam.repo&apos;&#x0A;- Destination element: &apos;RU_RESTful_Api/src/main/java/com.javasampleapproach.mysql.exam.repo&apos;" description="Copy compilation units" destination="=RU_RESTful_Api/src\/main\/java&lt;com.javasampleapproach.mysql.exam.repo" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1505640405566" units="0" version="1.0"/>
+</session>

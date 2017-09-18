@@ -1,0 +1,41 @@
+package com.javasampleapproach.mysql.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javasampleapproach.mysql.model.Api;
+import com.javasampleapproach.mysql.model.MarkDistribution;
+import com.javasampleapproach.mysql.repo.ApiRepository;
+import com.javasampleapproach.mysql.repo.MarkDistributionRepository;
+
+@Service
+public class MarkDistributionService {
+	
+	@Autowired
+	private MarkDistributionRepository markrepo;
+	
+	public void addmarkdistribution(MarkDistribution markdistribution){
+		markrepo.save(markdistribution);
+		
+	}
+	
+public void deletemarkdistribution(long id) {
+		
+		markrepo.delete(id);
+		
+	}
+	
+public void updatemarkdistribution(long id, MarkDistribution markdistribution) {
+	
+	markrepo.save(markdistribution);
+	
+	
+}
+public MarkDistribution getmarkdistribution(long id)
+{
+	
+	return (MarkDistribution) markrepo.findOne(id);
+}
+
+}
+
